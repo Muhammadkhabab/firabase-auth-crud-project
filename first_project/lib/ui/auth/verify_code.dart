@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import '../../widgets/round_button.dart';
 
 class VerifyCodeScreen extends StatefulWidget {
-  final String VerifivcationId;
-  const VerifyCodeScreen({super.key, required this.VerifivcationId});
+  final String verifivcationId;
+  const VerifyCodeScreen({super.key, required this.verifivcationId});
 
   @override
   State<VerifyCodeScreen> createState() => _VerifyCodeScreenState();
@@ -31,9 +31,7 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
               height: 50,
             ),
             TextFormField(
-                controller: verifyCodeController,
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(hintText: '6 digit code')),
+                controller: verifyCodeController, keyboardType: TextInputType.number, decoration: const InputDecoration(hintText: '6 digit code')),
             const SizedBox(
               height: 70,
             ),
@@ -44,15 +42,11 @@ class _VerifyCodeScreenState extends State<VerifyCodeScreen> {
                   setState(() {
                     loading = true;
                   });
-                  final credential = PhoneAuthProvider.credential(
-                      verificationId: widget.VerifivcationId,
-                      smsCode: verifyCodeController.text.toString());
+                  final credential =
+                      PhoneAuthProvider.credential(verificationId: widget.verifivcationId, smsCode: verifyCodeController.text.toString());
                   try {
                     await auth.signInWithCredential(credential);
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const PostScreen()));
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => const PostScreen()));
                   } catch (e) {
                     setState(() {
                       loading = false;

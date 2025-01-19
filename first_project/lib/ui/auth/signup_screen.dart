@@ -30,11 +30,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       loading = true;
     });
     try {
-      _auth
-          .createUserWithEmailAndPassword(
-              email: emailController.text.toString(),
-              password: passwordCotroller.text.toString())
-          .then((value) {
+      _auth.createUserWithEmailAndPassword(email: emailController.text.toString(), password: passwordCotroller.text.toString()).then((value) {
         setState(() {
           loading = false;
         });
@@ -72,9 +68,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     TextFormField(
                       keyboardType: TextInputType.emailAddress,
                       controller: emailController,
-                      decoration: const InputDecoration(
-                          hintText: 'Enter email',
-                          prefixIcon: Icon(Icons.email_outlined)
+                      decoration: const InputDecoration(hintText: 'Enter email', prefixIcon: Icon(Icons.email_outlined)
                           // helperText: 'enter email e.g jon@gmail.com'
                           ),
                       validator: (value) {
@@ -128,10 +122,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 const Text("Already have an account"),
                 TextButton(
                     onPressed: () {
-                      Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => const LoginScreen()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => const LoginScreen()));
                     },
                     child: const Text('LogIn'))
               ],

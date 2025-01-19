@@ -60,7 +60,7 @@ class _LoginWithPhoneNumberState extends State<LoginWithPhoneNumber> {
                             context,
                             MaterialPageRoute(
                                 builder: (context) => VerifyCodeScreen(
-                                      VerifivcationId: verificationId,
+                                      verifivcationId: verificationId,
                                     )));
                         setState(() {
                           loading = false;
